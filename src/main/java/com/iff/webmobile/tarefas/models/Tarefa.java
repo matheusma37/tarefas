@@ -29,6 +29,10 @@ public class Tarefa implements Serializable{
     @NotNull(message = "Grupo é obrigatório!")
     private Grupo grupo;
     
+    @NotNull(message = "Nome é obrigatório!")
+    @Column(length=100)
+    private String name;
+    
     @NotNull(message = "Descrição é obrigatória!")
     @Column(length=500)
     private String descricao;
@@ -85,5 +89,13 @@ public class Tarefa implements Serializable{
 
     public void setDataFim(Date dataFim) {
         this.dataFim = dataFim;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
