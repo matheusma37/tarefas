@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.iff.web-mobile</groupId>
-    <artifactId>tarefas</artifactId>
+    <artifactId>trabalhos</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>tarefas</name>
+    <name>trabalhos</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
