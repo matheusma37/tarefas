@@ -1,4 +1,4 @@
-package com.iff.webmobile.tarefas.models;
+package com.iff.webmobile.trabalhos.models;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -21,7 +21,7 @@ public class Tarefa implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @OneToOne(mappedBy = "pessoa", optional = true)
+    @OneToOne(optional = true)
     private Pessoa pessoa;
     
     @ManyToOne

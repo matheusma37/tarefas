@@ -1,10 +1,10 @@
-package com.iff.webmobile.tarefas.controllers;
+package com.iff.webmobile.trabalhos.controllers;
 
-import com.iff.webmobile.tarefas.models.Grupo;
-import com.iff.webmobile.tarefas.models.Tarefa;
-import com.iff.webmobile.tarefas.repositories.Pessoas;
-import com.iff.webmobile.tarefas.repositories.Grupos;
-import com.iff.webmobile.tarefas.repositories.Tarefas;
+import com.iff.webmobile.trabalhos.models.Grupo;
+import com.iff.webmobile.trabalhos.models.Tarefa;
+import com.iff.webmobile.trabalhos.repositories.Pessoas;
+import com.iff.webmobile.trabalhos.repositories.Grupos;
+import com.iff.webmobile.trabalhos.repositories.Tarefas;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

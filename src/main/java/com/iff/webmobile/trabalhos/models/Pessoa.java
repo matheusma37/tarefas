@@ -1,4 +1,4 @@
-package com.iff.webmobile.tarefas.models;
+package com.iff.webmobile.trabalhos.models;
 
 import java.io.Serializable;
 import javax.persistence.Column;

@@ -1,6 +1,6 @@
-package com.iff.webmobile.tarefas.repositories;
+package com.iff.webmobile.trabalhos.repositories;
 
-import com.iff.webmobile.tarefas.models.Pessoa;
+import com.iff.webmobile.trabalhos.models.Pessoa;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface Pessoas extends JpaRepository<Pessoa, Long>{
