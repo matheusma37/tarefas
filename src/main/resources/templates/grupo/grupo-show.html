@@ -11,25 +11,17 @@
                 <div class="row">
                     <div class="col-md-2">Tarefas:</div>
                     <div class="col-md-2">
-                        <ul th:each="tarefa : ${grupo.tarefas}">
-                            <li>
-                                <a th:href="@{/grupo/{grupo.id}/tarefas/show/}+${tarefa.id}">
-                                    <span th:text="${tarefa.nome}"></span>
-                                </a>
-                            </li>
-                        </ul>
+                        <a th:href="@{/grupos/}+${grupo.id}+@{/tarefas}">
+                            exibir
+                        </a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-2">Pessoas:</div>
                     <div class="col-md-2">
-                        <ul th:each="pessoa : ${grupo.pessoas}">
-                            <li>
-                                <a th:href="@{/pessoas/show/}+${pessoa.id}">
-                                    <span th:text="${pessoa.nome}"></span>
-                                </a>
-                            </li>
-                        </ul>
+                        <a th:href="@{/pessoas}">
+                            exibir
+                        </a>
                     </div>
                 </div>
                 <p class="card-text text-break" th:text="${grupo.descricao}"></p>

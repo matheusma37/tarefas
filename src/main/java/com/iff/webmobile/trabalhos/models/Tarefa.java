@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Tarefa implements Serializable{
@@ -37,9 +38,11 @@ public class Tarefa implements Serializable{
     @Column(length=500)
     private String descricao;
     
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull(message = "Data de início é obrigatória!")
     private Date dataInicio;
     
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull(message = "Data de fim é obrigatória!")
     private Date dataFim;
 

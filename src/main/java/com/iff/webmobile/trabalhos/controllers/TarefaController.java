@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/grupo/{id_grupo}/tarefas")
+@RequestMapping("/grupos/{id_grupo}/tarefas")
 public class TarefaController {
    
     @Autowired
@@ -30,6 +30,7 @@ public class TarefaController {
         ModelAndView mv = new ModelAndView("tarefa/tarefas-list");
         mv.addObject("tarefa", new Tarefa());
         Grupo grupo = grupos.getOne(id_grupo);
+        mv.addObject("grupo", grupo);
         mv.addObject("pessoas", grupo.getPessoas());
         mv.addObject("tarefas", grupo.getTarefas());
         return mv;
@@ -47,6 +48,7 @@ public class TarefaController {
             }
         }
         
+        mv.addObject("grupo", grupo);
         mv.addObject("tarefa", tarefa);
         return mv;
     }
@@ -69,6 +71,7 @@ public class TarefaController {
             }
         }
         
+        mv.addObject("grupo", grupo);
         mv.addObject("tarefa", tarefa);
         return mv;
     }
