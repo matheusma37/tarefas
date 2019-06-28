@@ -45,7 +45,9 @@ public class PessoaController {
     @RequestMapping(value="update/{id}")
     public ModelAndView update(@PathVariable Long id) {
         ModelAndView mv = new ModelAndView("pessoa/pessoa-edit");
-        mv.addObject("pessoa", pessoas.getOne(id));
+        Pessoa pessoa = pessoas.getOne(id);
+        mv.addObject("pessoa", pessoa);
+        mv.addObject("tarefas", pessoa.getGrupo().getTarefas());
         return mv;
     }
 

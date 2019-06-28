@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout-padrao">
+
+    <div layout:fragment="conteudo">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${pessoa.nome}"></h5>
+                <div class="row">
+                    <div class="col-md-2">Email:</div>
+                    <div class="col-md-2">
+                        <p th:text="${pessoa.email}"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Função:</div>
+                    <div class="col-md-2">
+                        <p th:text="${pessoa.funcao}"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Grupo:</div>
+                    <div class="col-md-2">
+                        <a th:href="@{/grupos/show/}+${pessoa.grupo.id}">
+                            <span th:text="${pessoa.grupo.nome}"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Tarefa:</div>
+                    <div class="col-md-2" th:if="${pessoa.tarefa != null}">
+                        <a th:href="@{/grupo/{pessoa.tarefa.grupo.id}/tarefas/show/}+${pessoa.tarefa.id}">
+                            <span th:text="${pessoa.tarefa.nome}"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <a th:href="@{/pessoas}" class="btn btn-primary btn-sm active">retornar</a>
+                <a href="" class="btn btn-danger btn-sm active" data-toggle="modal"
+                    data-target="#confirmaExclusaoModal" data-placement="top"
+		    th:attr="data-id=${pessoa.id}, data-name=${pessoa.nome}, data-model='pessoa'">
+                    apagar
+                </a>
+                <a th:href="@{/pessoas/update/}+${pessoa.id}" 
+                    class="btn btn-warning btn-sm text-white active">
+                    atualizar
+                </a>
+            </div>
+        </div>
+        <div  th:replace="fragments/exclusao :: exclusao"></div>
+    </div>
+</html>

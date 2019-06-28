@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout-padrao">
+
+    <div layout:fragment="conteudo">
+        <div class="panel panel-default" style="margin: 10px">
+            <div class="panel-heading">
+                <h1 class="panel-title">Lista de Pessoas</h1>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Função</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="pessoa : ${pessoas}">
+                            <td>
+                                <a th:href="@{/pessoas/show/}+${pessoa.id}">
+                                    <span th:text="${pessoa.nome}"></span>
+                                </a>
+                            </td>
+                            <td th:text="${pessoa.funcao}"></td>
+                            <td>
+                                <a href="" class="btn btn-danger btn-sm active"
+                                   data-toggle="modal" data-target="#confirmaExclusaoModal"
+                                   data-placement="top"
+                                   th:attr="data-id=${pessoa.id}, data-name=${pessoa.nome}, data-model='pessoa'">
+                                    apagar
+                                </a>
+                                <a th:href="@{/pessoas/update/}+${pessoa.id}" 
+                                    class="btn btn-warning btn-sm text-white active">
+                                    atualizar
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <a href="" class="btn btn-success btn-sm active" data-toggle="modal"
+                    data-target="#formPessoa" data-placement="top">
+                    Novo
+            </a>
+            <div th:replace="fragments/form-pessoa :: form"></div>
+            <div  th:replace="fragments/exclusao :: exclusao"></div>
+        </div>
+    </div>
+</html>
