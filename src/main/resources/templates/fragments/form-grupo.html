@@ -1,0 +1,32 @@
+<div th:fragment="form">
+    <div class="modal fade" id="formGrupo" tabindex="-1" role="dialog" aria-labelledby="Form" aria-hidden="true" style="padding-bottom: 0px;">
+        <div class="modal-dialog" role="document">
+            <form method="POST" th:object="${grupo}"
+                  th:action="@{/grupos}">
+                <div class="modal-content">
+                    <div class="modal-header p-3 mb-2 bg-dark text-white">
+                        <h5 class="modal-title" id="exampleModalLabel">Novo Grupo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="id" th:field="*{id}" />
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input th:field="*{nome}" type="text" class="form-control" id="name"></input>
+                        </div>
+                        <div class="form-group">
+                            <label for="descricao">Description</label>
+                            <textarea th:field="*{descricao}" class="form-control" id="description" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer p-3 mb-2 bg-dark text-white">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

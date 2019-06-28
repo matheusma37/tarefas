@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout-padrao">
+
+    <div layout:fragment="conteudo">
+        <div class="panel panel-default" style="margin: 10px">
+            <div class="panel-heading">
+                <h1 class="panel-title">Lista de Grupos</h1>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="grupo : ${grupos}">
+                            <td>
+                                <a th:href="@{/grupos/show/}+${grupo.id}">
+                                    <span th:text="${grupo.nome}"></span>
+                                </a>
+                            </td>
+                            <td th:text="${grupo.descricao}"></td>
+                            <td>
+                                <a href="" class="btn btn-danger btn-sm active"
+                                   data-toggle="modal" data-target="#confirmaExclusaoModal"
+                                   data-placement="top"
+                                   th:attr="data-id=${grupo.id}, data-name=${grupo.nome}, data-model='grupo'">
+                                    apagar
+                                </a>
+                                <a th:href="@{/grupos/update/}+${grupo.id}" 
+                                    class="btn btn-warning btn-sm text-white active">
+                                    atualizar
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <a href="" class="btn btn-success btn-sm active" data-toggle="modal"
+                    data-target="#formGrupo" data-placement="top">
+                    Novo
+            </a>
+            <div th:replace="fragments/form-grupo :: form"></div>
+            <div  th:replace="fragments/exclusao :: exclusao"></div>
+        </div>
+    </div>
+</html>

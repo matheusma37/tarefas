@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout-padrao">
+
+    <div layout:fragment="conteudo">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${grupo.nome}"></h5>
+                <div class="row">
+                    <div class="col-md-2">Tarefas:</div>
+                    <div class="col-md-2">
+                        <tr th:each="tarefa : ${grupo.tarefas}">
+                            <td>
+                                <a th:href="@{/grupo/{grupo.id}/tarefas/show/}+${tarefa.id}">
+                                    <span th:text="${tarefa.nome}"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Pessoas:</div>
+                    <div class="col-md-2">
+                        <tr th:each="pessoa : ${grupo.pessoas}">
+                            <td>
+                                <a th:href="@{/pessoas/show/}+${pessoa.id}">
+                                    <span th:text="${pessoa.nome}"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    </div>
+                </div>
+                <p class="card-text text-break" th:text="${grupo.descricao}"></p>
+            </div>
+            <div class="card-body">
+                <a th:href="@{/grupos}" class="btn btn-primary btn-sm active">retornar</a>
+                <a href="" class="btn btn-danger btn-sm active" data-toggle="modal"
+                    data-target="#confirmaExclusaoModal" data-placement="top"
+		    th:attr="data-id=${grupo.id}, data-name=${grupo.nome}, data-model='grupo'">
+                    apagar
+                </a>
+                <a th:href="@{/grupos/update/}+${grupo.id}" 
+                    class="btn btn-warning btn-sm text-white active">
+                    atualizar
+                </a>
+            </div>
+        </div>
+        <div  th:replace="fragments/exclusao :: exclusao"></div>
+    </div>
+</html>

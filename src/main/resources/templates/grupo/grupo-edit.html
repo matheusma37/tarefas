@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout-padrao">
+
+    <div layout:fragment="conteudo">
+        <div class="jumbotron p-3 mb-2 bg-light text-dark">
+            <form method="POST" th:object="${grupo}"
+                  th:action="@{/grupos}">
+                <div class="p-3 mb-2 bg-dark text-white">
+                    <h4>Editar Grupo</h4>
+                </div>
+                <input type="hidden" th:field="*{id}" />
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input th:field="*{nome}" type="text" class="form-control" id="name"></input>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descrição</label>
+                    <textarea th:field="*{descricao}" class="form-control" id="description" rows="3"></textarea>
+                </div>
+                <div class="row p-3 mb-2 bg-dark text-white">
+                    <div class="col-2">
+                        <a th:href="@{/grupos}" class="btn btn-danger">
+                            Cancelar
+                        </a>
+                    </div>
+                    <div class="col-1">
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</html>

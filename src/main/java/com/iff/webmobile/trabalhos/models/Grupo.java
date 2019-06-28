@@ -22,7 +22,7 @@ public class Grupo implements Serializable{
     
     @NotNull(message = "Nome é obrigatório!")
     @Column(length=100)
-    private String name;
+    private String nome;
     
     @NotNull(message = "Descrição é obrigatória!")
     @Column(length=500)
@@ -42,12 +42,12 @@ public class Grupo implements Serializable{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getDescricao() {
