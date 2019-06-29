@@ -8,9 +8,21 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/")
 public class TrabalhosController {
     
-    @RequestMapping("")
+    @RequestMapping("index")
     public ModelAndView home() {
         ModelAndView mv = new ModelAndView("index");
+        return (mv);
+    }
+    
+    @RequestMapping("contatos")
+    public ModelAndView contacts() {
+        ModelAndView mv = new ModelAndView("contatos");
+        return (mv);
+    }
+    
+    @RequestMapping("grupo")
+    public ModelAndView group() {
+        ModelAndView mv = new ModelAndView("grupo");
         return (mv);
     }
 }
