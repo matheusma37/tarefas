@@ -20,7 +20,7 @@
                     <tbody>
                         <tr th:each="tarefa : ${tarefas}">
                             <td>
-                                <a th:href="@{/grupos/}+${grupo.id}+@{/tarefas}+${tarefa.id}">
+                                <a th:href="@{/grupos/}+${grupo.id}+@{/tarefas/show/}+${tarefa.id}">
                                     <span th:text="${tarefa.nome}"></span>
                                 </a>
                             </td>
@@ -28,7 +28,7 @@
                                 <a href="" class="btn btn-danger btn-sm active"
                                    data-toggle="modal" data-target="#confirmaExclusaoModal"
                                    data-placement="top"
-                                   th:attr="data-id=${tarefa.id}, data-name=${tarefa.nome}, data-model='tarefa'">
+                                   th:attr="data-grupo=${grupo.id}, data-id=${tarefa.id}, data-name=${tarefa.nome}, data-model='tarefa'">
                                     apagar
                                 </a>
                                 <a th:href="@{/grupos/}+${grupo.id}+@{/tarefas/update/}+${tarefa.id}" 
@@ -40,6 +40,9 @@
                     </tbody>
                 </table>
             </div>
+            <a th:href="@{/grupos/show/}+${grupo.id}" class="btn btn-primary btn-sm active">
+                Retornar
+            </a>
             <a href="" class="btn btn-success btn-sm active" data-toggle="modal"
                     data-target="#formTarefa" data-placement="top">
                     Novo

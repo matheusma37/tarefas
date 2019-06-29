@@ -32,7 +32,7 @@ public class Grupo implements Serializable{
     private Set<Tarefa> tarefas;
     
     @OneToMany(mappedBy = "grupo")
-    private Set<Tarefa> pessoas;
+    private Set<Pessoa> pessoas;
 
     public Long getId() {
         return id;
@@ -66,11 +66,11 @@ public class Grupo implements Serializable{
         this.tarefas = tarefas;
     }
 
-    public Set<Tarefa> getPessoas() {
+    public Set<Pessoa> getPessoas() {
         return pessoas;
     }
 
-    public void setPessoas(Set<Tarefa> pessoas) {
+    public void setPessoas(Set<Pessoa> pessoas) {
         this.pessoas = pessoas;
     }
     

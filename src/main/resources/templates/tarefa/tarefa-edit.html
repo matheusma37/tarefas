@@ -6,7 +6,7 @@
 
     <div layout:fragment="conteudo">
         <div class="jumbotron p-3 mb-2 bg-light text-dark">
-            <form method="POST" th:object="${pessoa}"
+            <form method="POST" th:object="${tarefa}"
                   th:action="@{/grupos/}+${grupo.id}+@{/tarefas}">
                 <div class="p-3 mb-2 bg-dark text-white">
                     <h4>Editar Tarefa</h4>
@@ -32,7 +32,7 @@
                 <input type="hidden" id="person" th:field="*{pessoa}" />
                 <div class="row p-3 mb-2 bg-dark text-white">
                     <div class="col-2">
-                        <a th:href="@{/grupos/${tarefa.grupo.id}/tarefas}" class="btn btn-danger">
+                        <a th:href="@{/grupos/}+${tarefa.grupo.id}+@{/tarefas}" class="btn btn-danger">
                             Cancelar
                         </a>
                     </div>

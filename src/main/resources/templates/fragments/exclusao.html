@@ -34,7 +34,13 @@
             if (!action.endsWith('/')) {
                     action += '/';
             }
-            form.attr('action', action + model+'s/delete/'+id);
+            
+            var grupo = "";
+            if(model === "tarefa"){
+                grupo = "grupos/" + button.data('grupo') + "/";
+            }
+            
+            form.attr('action', action + grupo + model+'s/delete/'+id);
 
             modal.find('.modal-body span').html('Tem certeza que deseja excluir o '+model+' <strong>' + name + '</strong>?');
         });

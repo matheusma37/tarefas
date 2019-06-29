@@ -10,35 +10,40 @@
                 <h5 class="card-title" th:text="${tarefa.nome}"></h5>
                 <div class="row">
                     <div class="col-md-2">Grupo:</div>
-                    <div class="col-md-2">
-                        <p th:text="${tarefa.grupo}"></p>
+                    <div class="col-md-4">
+                        <p th:text="${tarefa.grupo.nome}"></p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-2">Responsável:</div>
-                    <div class="col-md-2">
-                        <p th:text="${tarefa.pessoa}"></p>
+                    <div class="col-md-4">
+                        <p th:text="${tarefa.pessoa.nome}"></p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-2">Data de Início:</div>
-                    <div class="col-md-2">
-                        <p th:text="${#temporals.format(tarefa.dataInicio,'dd-MM-yyyy')}"></p>
+                    <div class="col-md-4">
+                        <p th:text="${#dates.format(tarefa.dataInicio, 'dd-MMM-yyyy')}"></p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-2">Data de Fim:</div>
-                    <div class="col-md-2">
-                        <p th:text="${#temporals.format(tarefa.dataFim,'dd-MM-yyyy')}"></p>
+                    <div class="col-md-4">
+                        <p th:text="${#dates.format(tarefa.dataFim, 'dd-MMM-yyyy')}"></p>
                     </div>
                 </div>
-                <p th:text="${tarefa.descricao}"></p>
+                <div class="row">
+                    <div class="col-md-2">Descrição:</div>
+                    <div class="col-md-4">
+                        <p th:text="${tarefa.descricao}"></p>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <a th:href="@{/grupos/}+${grupo.id}+@{/tarefas}" class="btn btn-primary btn-sm active">retornar</a>
                 <a href="" class="btn btn-danger btn-sm active" data-toggle="modal"
                     data-target="#confirmaExclusaoModal" data-placement="top"
-		    th:attr="data-id=${tarefa.id}, data-name=${tarefa.nome}, data-model='tarefa'">
+		    th:attr="data-grupo=${grupo.id}, data-id=${tarefa.id}, data-name=${tarefa.nome}, data-model='tarefa'">
                     apagar
                 </a>
                 <a th:href="@{/grupos/}+${grupo.id}+@{/tarefas/update/}+${tarefa.id}" 

@@ -54,9 +54,9 @@ public class TarefaController {
     }
 
     @RequestMapping(value="",method=RequestMethod.POST)
-    public String save(Tarefa tarefa) {
+    public String save(@PathVariable Long id_grupo, Tarefa tarefa) {
         tarefas.save(tarefa);
-        return "redirect:/grupo/"+tarefa.getGrupo().getId().toString()+"/tarefas";
+        return "redirect:/grupos/"+id_grupo.toString()+"/tarefas";
     }
 
     @RequestMapping(value="update/{id_tarefa}")
@@ -79,6 +79,6 @@ public class TarefaController {
     @RequestMapping(value="/delete/{id_tarefa}")
     public String delete(@PathVariable Long id_grupo, @PathVariable Long id_tarefa) {
         tarefas.deleteById(id_tarefa);
-        return "redirect:/grupo/"+id_grupo.toString()+"/tarefas";
+        return "redirect:/grupos/"+id_grupo.toString()+"/tarefas";
     }
 }

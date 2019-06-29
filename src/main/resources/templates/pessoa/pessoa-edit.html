@@ -28,7 +28,7 @@
                     <label for="task">Tarefa</label>
                     <select th:field="*{tarefa}" id="task" class="form-control">
                         <option selected="selected" value="">
-                            Choose...
+                            Escolha...
                         </option>
                         <option th:each="tarefa : ${tarefas}"
                                 th:value="${tarefa.id}" th:text="${tarefa.nome}">

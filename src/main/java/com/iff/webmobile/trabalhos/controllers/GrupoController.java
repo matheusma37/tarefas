@@ -1,7 +1,9 @@
 package com.iff.webmobile.trabalhos.controllers;
 
 import com.iff.webmobile.trabalhos.models.Grupo;
+import com.iff.webmobile.trabalhos.models.Pessoa;
 import com.iff.webmobile.trabalhos.repositories.Grupos;
+import com.iff.webmobile.trabalhos.repositories.Pessoas;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +17,9 @@ public class GrupoController {
    
     @Autowired
     Grupos grupos;
+    
+    @Autowired
+    Pessoas pessoas;
 
     @RequestMapping("")
     public ModelAndView listAll() {
@@ -46,6 +51,12 @@ public class GrupoController {
 
     @RequestMapping(value="/delete/{id}")
     public String delete(@PathVariable Long id) {
+        Grupo grupo = grupos.getOne(id);
+        for(Pessoa pessoa: grupo.getPessoas()){
+            pessoa.setGrupo(null);
+            pessoas.save(pessoa);
+        }
+        
         grupos.deleteById(id);
         return "redirect:/grupos";
     }

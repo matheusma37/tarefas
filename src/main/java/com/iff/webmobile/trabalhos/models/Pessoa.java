@@ -1,6 +1,7 @@
 package com.iff.webmobile.trabalhos.models;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +26,6 @@ public class Pessoa implements Serializable{
     
     @ManyToOne
     @JoinColumn(name = "grupo_id")
-    @NotNull(message = "Grupo é obrigatório!")
     private Grupo grupo;
     
     @NotNull(message = "Nome é obrigatório!")
